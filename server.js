@@ -24,7 +24,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Define API routes here
-require("./routes");
+var routes = require("./routes");
+app.use(routes);
 
 // seed the database with initial data
 var db = require("./models");

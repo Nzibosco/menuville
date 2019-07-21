@@ -10,6 +10,7 @@ module.exports = {
       .create({
         name: req.body.name,
         detail: req.body.detail,
+        image: req.body.image,
         price: req.body.price
       })
       .then(menu => {
