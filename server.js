@@ -24,11 +24,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Define API routes here
-require("./routes/api-routes");
+require("./routes");
 
 // seed the database with initial data
 var db = require("./models");
-var menuSeeds = require("./scripts/seedDB");
+var menuSeeds = require("./scripts/seedDB.json");
 
 var syncOptions = { force: true };
 
@@ -39,14 +39,14 @@ if (process.env.NODE_ENV === 'test') {
 }
 
 db.sequelize
-  .sync(syncOptions)
+.sync(syncOptions)
   .then(function() {
-      console.log("syncOptions.force: "+syncOptions.force);
+      console.log("syncOptions.force: " + syncOptions.force);
       if(syncOptions.force === true) {
         db.Menu
         .bulkCreate(menuSeeds)
         .then(function(menuSeed) {
-            console.log("success seeding PRICERANGE " + menuSeed);
+            console.log("success seeding menu items " + menuSeed);
         })
         .catch(err => {
             console.log(err);
