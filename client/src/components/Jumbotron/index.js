@@ -1,10 +1,10 @@
 import React from "react";
 
-function Jumbotron({ children }) {
+function Jumbotron({ fluid, children }) {
   return (
     <div
       style={{ height: 300, clear: "both", textAlign: "center" }}
-      className="jumbotron"
+      className= {fluid ? "jumbotron-fluid" : "jumbotron"}
     >
       {children}
     </div>
