@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Input, FormBtn, FormRow } from "../form tools/form";
+import { Input, FormBtn, FormRow, TextArea } from "../form tools/form";
 import API from "../../utils/API";
 
 class CustomerForm extends Component {
@@ -72,6 +72,7 @@ class CustomerForm extends Component {
                             <h1 className = "card-title">{dish.name}</h1>
                             <p>{dish.detail}</p>
                             <h1>${dish.price}</h1>
+                            <TextArea labeltext = "Add notes"></TextArea>
                             <FormBtn>Order</FormBtn>
                         </div>
                     </div>
