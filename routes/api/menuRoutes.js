@@ -9,7 +9,7 @@ router.route("/")
 // Matches with "/api/menu/:id"
 router
   .route("/:id")
-  .get(menuController.findById)
+  .get(menuController.findOne)
   .put(menuController.update)
   .delete(menuController.delete);
 

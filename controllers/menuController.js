@@ -1,4 +1,6 @@
 const db = require("../models");
+const Sequelize = require("sequelize")
+const Op = Sequelize.Op;
 
 // Defining methods for the menuController
 module.exports = {
@@ -31,9 +33,9 @@ module.exports = {
   },
 
   // Find a menu by Id
-  findById: (req, res) => {
+  findOne: (req, res) => {
     db.Menu
-      .findById(req.params.menuId)
+      .findByPk(req.params.id)
       .then(menu => {
         res.send(menu);
       })
@@ -41,10 +43,10 @@ module.exports = {
 
   // Update a menu
   update: (req, res) => {
-    const id = req.params.menuId;
+    const id = req.params.id;
     db.Menu
       .update({ name: req.body.name, detail: req.body.detail, price: req.body.price, image: req.body.image},
-        { where: { id: req.params.menuId } }
+        { where: { id: id } }
       )
       .then(() => {
         res.status(200).send("updated successfully a menu with id = " + id);
@@ -53,7 +55,7 @@ module.exports = {
 
   // Delete a menu by Id
   delete: (req, res) => {
-    const id = req.params.menuId;
+    const id = req.params.id;
     db.Menu
       .destroy({
         where: { id: id }
