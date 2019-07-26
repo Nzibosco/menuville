@@ -2,11 +2,11 @@ import axios from "axios";
 
 export default {
   // Gets all books
-  getMenu: function() {
+  getMenu: () => {
     return axios.get("/api/menu");
   },
   // Gets the book with the given id
-  getMenu: function(id) {
+  getMenuById: function(id) {
     return axios.get("/api/menu/" + id);
   },
   // Deletes the book with the given id

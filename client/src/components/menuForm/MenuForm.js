@@ -5,7 +5,7 @@ import API from "../../utils/API";
 class CustomerForm extends Component {
     // setting a state representing customer details
     state = {
-        menu: [],
+        menu: "",
         name: "",
         image: "",
         detail: "",

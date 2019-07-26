@@ -6,27 +6,38 @@ class Menu extends Component {
     // setting a state representing customer details
     state = {
         dishes: [],
-        name: "",
-        image: "",
-        detail: "",
-        price: ""
+        // name: "",
+        // image: "",
+        // detail: "",
+        // price: ""
+    };
+        componentDidMount() {
+        this.loadMenu();
     };
 
-    componentDidMount() {
-        this.loadMenu();
-    }
 
     loadMenu = () => {
         API.getMenu()
-            .then(res => {
-                var newData = this.state.dishes.concat([res.data]);  
-this.setState({dishes: newData})
-                // this.setState({ dishes: res, name: "", image: "", detail: "", price: ""});
-                console.log(newData);
-            }
+            .then(res =>
+                this.setState({ dishes: res.data })
+                //console.log(res.data)
             )
             .catch(err => console.log(err));
     };
+
+
+
+//     loadMenu = () => {
+//         API.getMenu()
+//             .then(res => {
+//                 var newData = this.state.dishes.concat([res.data]);  
+// this.setState({dishes: newData})
+//                 // this.setState({ dishes: res, name: "", image: "", detail: "", price: ""});
+//                 console.log(newData);
+//             }
+//             )
+//             .catch(err => console.log(err));
+//     };
 
     // saveCustomer = (customerData) => {
     //     API.saveCustomer(customerData)

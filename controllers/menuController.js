@@ -1,6 +1,6 @@
 const db = require("../models");
 const Sequelize = require("sequelize")
-const Op = Sequelize.Op;
+//const Op = Sequelize.Op;
 
 // Defining methods for the menuController
 module.exports = {
