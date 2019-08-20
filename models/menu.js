@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 100]
       }
     },
+    // check AWS for saving images @ Amazon and then use AWS links to store the images in our local db
     image: {
       type: DataTypes.STRING,
       allowNull: false,

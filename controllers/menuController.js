@@ -1,5 +1,5 @@
 const db = require("../models");
-const Sequelize = require("sequelize")
+const Sequelize = require("sequelize") // this was created but never used.  Redundant
 //const Op = Sequelize.Op;
 
 // Defining methods for the menuController
