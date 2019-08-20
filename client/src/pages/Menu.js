@@ -81,6 +81,7 @@ class Menu extends Component {
     render() {
         return (
             <div className = "container menu">
+              <button>Add a menu item <strong>+</strong></button>  
             {this.state.dishes.length ? (
             <div>
                 {this.state.dishes.map(dish => (
@@ -98,7 +99,6 @@ class Menu extends Component {
              ) : (
             <h3>No Results to Display</h3>
             )}
-
             </div>
         );
     }
