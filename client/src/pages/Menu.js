@@ -81,7 +81,30 @@ class Menu extends Component {
     render() {
         return (
             <div className = "container menu">
-              <button>Add a menu item <strong>+</strong></button>  
+                              {/* button that toggles a form to add a new customer */}
+                              <FormBtn data-toggle="collapse" data-target="#add-customer" type="button" style={{ borderBottom: "solid", borderColor: "green" }}>Add Customer <span style={{ paddingLeft: "10px" }}>+</span></FormBtn>
+
+{/* form to add a new menu */}
+<div
+    id="add-customer"
+    className="collapse"
+>
+    <form>
+        <FormRow>
+            <Input name="name" colspecs="form-group col-sm-3" placeholder="Menu Name (required)" id="title" labeltext="Item name" value={this.state.name}
+                onChange={this.handleInputChange} />
+            <Input name="image" placeholder="link to photo (required)" colspecs="form-group col-sm-3" id="image" labeltext="photo" value={this.state.image}
+                onChange={this.handleInputChange} />
+            <TextArea name="detail" placeholder="enter detail" colspecs="form-group col-sm-4" id="detail" labeltext="Enter detail" rows = "4" cols = "40" value={this.state.detail}
+                onChange={this.handleInputChange} />
+            <Input name="price" placeholder="enter price in US$ (required)" colspecs="form-group col-sm-2" id="price" labeltext="price in US$" type="number" value={this.state.price}
+                onChange={this.handleInputChange} />
+        </FormRow>
+        <FormBtn type="submit" btndetails={"btn btn-success"}
+            disabled={!(this.state.name && this.state.image && this.state.detail && this.state.price)}
+            onClick={this.handleFormSubmit}>Submit</FormBtn>
+    </form>
+</div>  
             {this.state.dishes.length ? (
             <div>
                 {this.state.dishes.map(dish => (
